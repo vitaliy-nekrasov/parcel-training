@@ -121,7 +121,7 @@ async function fetchTrending(page) {
 
 async function fetchTrailerById(filmId) {
   try {
-    console.log(filmId);
+    // console.log(filmId);
     const URL = 'https://api.themoviedb.org/3/movie/';
 
     const response = await fetch(`${URL}${filmId}/videos?api_key=${API_KEY}`);
@@ -133,11 +133,11 @@ async function fetchTrailerById(filmId) {
 }
 
 fetchTrending(1).then(result => {
-  console.log(result);
+  // console.log(result);
 });
 
 fetchTrailerById(894205).then(result => {
-  console.log(result.results[0]);
+  // console.log(result.results[0]);
 });
 
 const bodyEl = document.querySelector('body');
@@ -145,3 +145,28 @@ const bodyEl = document.querySelector('body');
 let link = `<iframe width="440" height="240" src='https://www.youtube.com/embed/QjrWxvhDE7I'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>`;
 
 bodyEl.insertAdjacentHTML('afterend', link);
+
+// Задача 1
+
+function solution(str, ending) {
+  if (str.endsWith(ending)) {
+    return true;
+  }
+  return false;
+}
+
+// console.log(solution('abc', 'bc'));
+// console.log(solution('abc', 'd'));
+
+// Задача 2
+
+function maskify(cc) {
+  // console.log(cc.length - 4);
+  // console.log(cc.slice(0, cc.length - 4));
+  console.log(cc.slice(0, cc.length - 4).length);
+  // console.log(cc.replace(cc.slice(0, cc.length - 4), '#'));
+}
+
+console.log(maskify('4556364607935616'));
+console.log(maskify('1'));
+console.log(maskify('11111'));
