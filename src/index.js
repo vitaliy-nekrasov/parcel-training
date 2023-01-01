@@ -161,12 +161,59 @@ function solution(str, ending) {
 // Задача 2
 
 function maskify(cc) {
-  // console.log(cc.length - 4);
-  // console.log(cc.slice(0, cc.length - 4));
-  console.log(cc.slice(0, cc.length - 4).length);
-  // console.log(cc.replace(cc.slice(0, cc.length - 4), '#'));
+  const newArray = [];
+  if (cc.length > 4) {
+    const replaceNumbers = cc.slice(0, cc.length - 4);
+    const numbersArray = replaceNumbers.split('');
+    for (let i = 0; i < numbersArray.length; i += 1) {
+      const newNumbers = numbersArray[i].replace(numbersArray[i], '#');
+      newArray.push(newNumbers);
+    }
+    const str = newArray.join('');
+    const notReplaceStr = cc.slice(cc.length - 4, cc.length);
+    return str + notReplaceStr;
+  }
+  return cc;
 }
 
-console.log(maskify('4556364607935616'));
-console.log(maskify('1'));
-console.log(maskify('11111'));
+// console.log(maskify('4556364607935616'));
+// console.log(maskify('1'));
+// console.log(maskify('11111'));
+
+// Задача 3
+
+function findOdd(A) {
+  const obj = {};
+  for (let i = 0; i < A.length; i += 1) {
+    let num = A[i];
+    if (obj[num]) {
+      obj[num] = obj[num] + 1;
+    } else {
+      obj[num] = 1;
+    }
+  }
+  let r = null;
+  for (let prop in obj) {
+    if (obj[prop] % 2 !== 0) {
+      r = prop;
+    }
+  }
+  return Number(r);
+}
+
+// console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]));
+// console.log(findOdd([0, 1, 0, 1, 0]));
+// console.log(findOdd([0]));
+
+// Задача 4
+String.prototype.toJadenCase = function (str) {
+  const arr = str.split(' ');
+  const newArr = arr.map(word => word.replace(word[0], word[0].toUpperCase()));
+  return newArr.join(' ');
+};
+
+console.log(
+  String.prototype.toJadenCase(
+    "How can mirrors be real if our eyes aren't real"
+  )
+);
