@@ -212,8 +212,47 @@ String.prototype.toJadenCase = function (str) {
   return newArr.join(' ');
 };
 
-console.log(
-  String.prototype.toJadenCase(
-    "How can mirrors be real if our eyes aren't real"
-  )
-);
+// console.log(
+//   String.prototype.toJadenCase(
+//     "How can mirrors be real if our eyes aren't real"
+//   )
+// );
+
+// Задача 5
+
+function findEvenIndex(arr) {
+  let index = -1;
+  for (var i = 0; i < arr.length; i++) {
+    let start = arr.slice(0, i + 1).reduce((a, b) => a + b, 0);
+    let end = arr.slice(i).reduce((a, b) => a + b, 0);
+    console.log(end);
+    if (start === end) {
+      index = i;
+    }
+    if (start === 0 && end === 0) {
+      index = 4;
+    }
+  }
+  return index;
+}
+
+// console.log('result', findEvenIndex([1, 2, 3, 4, 3, 2, 1]));
+// console.log(findEvenIndex([1, 100, 50, -51, 1, 1]));
+// console.log(findEvenIndex([1, 2, 3, 4, 5, 6]));
+// console.log(findEvenIndex([0, 0, 0, 0, 0]));
+
+// Задача 6
+
+function filter_list(l) {
+  const arr = [];
+  for (el of l) {
+    if (typeof el === 'number') {
+      arr.push(el);
+    }
+  }
+  return arr;
+}
+
+console.log(filter_list([1, 2, 'a', 'b']));
+console.log(filter_list([1, 'a', 'b', 0, 15]));
+console.log(filter_list([1, 2, 'aasf', '1', '123', 123]));
