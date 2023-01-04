@@ -253,6 +253,75 @@ function filter_list(l) {
   return arr;
 }
 
-console.log(filter_list([1, 2, 'a', 'b']));
-console.log(filter_list([1, 'a', 'b', 0, 15]));
-console.log(filter_list([1, 2, 'aasf', '1', '123', 123]));
+// console.log(filter_list([1, 2, 'a', 'b']));
+// console.log(filter_list([1, 'a', 'b', 0, 15]));
+// console.log(filter_list([1, 2, 'aasf', '1', '123', 123]));
+
+// Задача 7
+
+var number = function (busStops) {
+  let bus = 0;
+  for (let i = 0; i < busStops.length; i += 1) {
+    bus += busStops[i][0] - busStops[i][1];
+  }
+  return bus;
+};
+
+// console.log(
+//   number([
+//     [10, 0],
+//     [3, 5],
+//     [5, 8],
+//   ])
+// );
+
+// Задача 8
+
+function high(x) {
+  let al = `abcdefghijklmnopqrstuvwxyz`.split('');
+  let words = x.split(' ');
+  let out = words.map(word => {
+    let score = 0;
+    let letters = word.split('');
+    letters.map(c => {
+      let point = al.indexOf(c) + 1;
+      score += point;
+    });
+    return [word, score];
+  });
+  console.log(out);
+  out = out.sort((a, b) => {
+    if (a[1] > b[1]) return -1;
+    else if (a[1] < b[1]) return 1;
+    else return 0;
+  });
+
+  return out[0][0];
+}
+// console.log(high('man i need a taxi up to ubud'));
+// console.log(high('what time are we climbing up the volcano'));
+// console.log(high('aa b'));
+
+// Задача 9
+
+function solution(str) {
+  const arr = str.split('');
+  let begin = -2;
+  let end = 0;
+  let result = [];
+  for (let i = 0; i < arr.length; i += 1) {
+    begin += 2;
+    end += 2;
+    const newArr = arr.slice(begin, end);
+    if (newArr.length === 1) {
+      newArr[1] = '_';
+    }
+    if (newArr.length === 2) {
+      result.push(newArr.join(''));
+    }
+  }
+  return result;
+}
+
+console.log(solution('abcdef'));
+console.log(solution('abcdefg'));
