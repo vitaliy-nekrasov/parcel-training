@@ -323,5 +323,38 @@ function solution(str) {
   return result;
 }
 
-console.log(solution('abcdef'));
-console.log(solution('abcdefg'));
+// console.log(solution('abcdef'));
+// console.log(solution('abcdefg'));
+
+// Задача 10
+
+function minMinMax(array) {
+  const min = Math.min.apply(null, array);
+  const max = Math.max.apply(null, array);
+  const arr = array.sort((a, b) => b - a).reverse();
+  let num = null;
+  for (let i = 0; i < arr.length; i += 1) {
+    if (!arr.includes(arr[i] + 1)) {
+      num = arr[i] + 1;
+      break;
+    }
+  }
+  return [min, num, max];
+}
+
+// console.log(minMinMax([-1, 4, 5, -23, 24]));
+// console.log(minMinMax([1, 3, -3, -2, 8, -1]));
+// console.log(minMinMax([2, -4, 8, -5, 9, 7]));
+
+// Задача 11
+
+function stray(numbers) {
+  const result = numbers.find(
+    number => numbers.indexOf(number) === numbers.lastIndexOf(number)
+  );
+  return result;
+}
+
+console.log(stray([1, 1, 2]));
+console.log(stray([1, 2, 1]));
+console.log(stray([2, 1, 1]));
