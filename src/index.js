@@ -355,6 +355,68 @@ function stray(numbers) {
   return result;
 }
 
-console.log(stray([1, 1, 2]));
-console.log(stray([1, 2, 1]));
-console.log(stray([2, 1, 1]));
+// console.log(stray([1, 1, 2]));
+// console.log(stray([1, 2, 1]));
+// console.log(stray([2, 1, 1]));
+
+const obj = {
+  viktor: ['apple', 'grape', 'orange', 'apple', 'banana'],
+  kate: ['grape', 'orange', 'apple', 'grape', 'banana'],
+};
+
+function calc(data) {
+  //получаем значения массивов
+  const countArray = arr =>
+    arr.reduce((acc, val) => {
+      const obj = { ...acc, [val]: (acc[val] || 0) + 1 };
+      return obj;
+    }, {});
+  //получаем значение ключей
+  const countKeys = o =>
+    Object.keys(o).reduce(
+      (acc, key) => ({ ...acc, [key]: countArray(o[key]) }),
+      {}
+    );
+  return countKeys(data);
+}
+
+// console.log(calc(obj));
+//result of calc method should be equal to
+// {
+//     viktor: {
+//         apple: 2,
+//         grape: 1,
+//         orange: 1,
+//         banana: 1,
+//     },
+//     kate: {
+//         apple: 1,
+//         grape: 2,
+//         orange: 1,
+//         banana: 1,
+//     },
+// }
+
+// Задача 12
+
+function tribonacci(signature, n) {
+  let arr = [...signature];
+  for (let i = 0; i < n - 3; i += 1) {
+    arr = [
+      ...arr,
+      arr[arr.length - 1] + arr[arr.length - 2] + arr[arr.length - 3],
+    ];
+  }
+  if (n === 1) {
+    return [arr[0]];
+  }
+  if (n === 2) {
+    return [arr[0], arr[1]];
+  }
+  if (n === 0) {
+    return [];
+  }
+  return arr;
+}
+
+// console.log(tribonacci([1, 1, 1], 10));
