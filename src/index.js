@@ -105,46 +105,46 @@
 //   console.log(result.results[0].video);
 // });
 
-const API_KEY = '1c5c067e324c39f9223ad13ef9891a0a';
+// const API_KEY = '1c5c067e324c39f9223ad13ef9891a0a';
 
-async function fetchTrending(page) {
-  try {
-    const URL = 'https://api.themoviedb.org/3/trending/movie/week';
+// async function fetchTrending(page) {
+//   try {
+//     const URL = 'https://api.themoviedb.org/3/trending/movie/week';
 
-    const response = await fetch(`${URL}?api_key=${API_KEY}&page=${page}`);
-    return response.json();
-  } catch (error) {
-    // обработка ошибки получения данных с бэкэнда
-    console.error(error);
-  }
-}
+//     const response = await fetch(`${URL}?api_key=${API_KEY}&page=${page}`);
+//     return response.json();
+//   } catch (error) {
+//     // обработка ошибки получения данных с бэкэнда
+//     console.error(error);
+//   }
+// }
 
-async function fetchTrailerById(filmId) {
-  try {
-    // console.log(filmId);
-    const URL = 'https://api.themoviedb.org/3/movie/';
+// async function fetchTrailerById(filmId) {
+//   try {
+//     // console.log(filmId);
+//     const URL = 'https://api.themoviedb.org/3/movie/';
 
-    const response = await fetch(`${URL}${filmId}/videos?api_key=${API_KEY}`);
-    return response.json();
-  } catch (error) {
-    // обработка ошибки получения данных с бэкэнда
-    console.error(error);
-  }
-}
+//     const response = await fetch(`${URL}${filmId}/videos?api_key=${API_KEY}`);
+//     return response.json();
+//   } catch (error) {
+//     // обработка ошибки получения данных с бэкэнда
+//     console.error(error);
+//   }
+// }
 
-fetchTrending(1).then(result => {
-  // console.log(result);
-});
+// fetchTrending(1).then(result => {
+//   // console.log(result);
+// });
 
-fetchTrailerById(894205).then(result => {
-  // console.log(result.results[0]);
-});
+// fetchTrailerById(894205).then(result => {
+//   // console.log(result.results[0]);
+// });
 
-const bodyEl = document.querySelector('body');
+// const bodyEl = document.querySelector('body');
 
-let link = `<iframe width="440" height="240" src='https://www.youtube.com/embed/QjrWxvhDE7I'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>`;
+// let link = `<iframe width="440" height="240" src='https://www.youtube.com/embed/QjrWxvhDE7I'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>`;
 
-bodyEl.insertAdjacentHTML('afterend', link);
+// bodyEl.insertAdjacentHTML('afterend', link);
 
 // Задача 1
 
@@ -364,21 +364,21 @@ const obj = {
   kate: ['grape', 'orange', 'apple', 'grape', 'banana'],
 };
 
-function calc(data) {
-  //получаем значения массивов
-  const countArray = arr =>
-    arr.reduce((acc, val) => {
-      const obj = { ...acc, [val]: (acc[val] || 0) + 1 };
-      return obj;
-    }, {});
-  //получаем значение ключей
-  const countKeys = o =>
-    Object.keys(o).reduce(
-      (acc, key) => ({ ...acc, [key]: countArray(o[key]) }),
-      {}
-    );
-  return countKeys(data);
-}
+// function calc(data) {
+//   //получаем значения массивов
+//   const countArray = arr =>
+//     arr.reduce((acc, val) => {
+//       const obj = { ...acc, [val]: (acc[val] || 0) + 1 };
+//       return obj;
+//     }, {});
+//   //получаем значение ключей
+//   const countKeys = o =>
+//     Object.keys(o).reduce(
+//       (acc, key) => ({ ...acc, [key]: countArray(o[key]) }),
+//       {}
+//     );
+//   return countKeys(data);
+// }
 
 // console.log(calc(obj));
 //result of calc method should be equal to
