@@ -420,3 +420,17 @@ function tribonacci(signature, n) {
 }
 
 // console.log(tribonacci([1, 1, 1], 10));
+
+const arr = [1, 4, 6, [43, 54, [543, 4, 5, [8, 7, [12]]]]];
+
+function flat(arr) {
+  const arr1 = arr.flatMap(number => number);
+  for (const number of arr1) {
+    if (typeof number === 'object') {
+      return flat(arr1);
+    }
+  }
+  return arr1;
+}
+
+// console.log(flat(arr));
